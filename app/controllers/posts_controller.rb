@@ -7,15 +7,10 @@ class PostsController < ApplicationController
   def index
     @tag = params[:id]
     if @tag
-      @postsArr = Post.tagged_with(@tag)
+     @postsArr = Post.tagged_with(@tag)
      @posts = @postsArr.scoped.paginate(page: params[:page])
-
-    unless @postsArr.kind_of?(Array)
-    @tag_posts=false
-    end
     else
       @posts = Post.paginate(:per_page => 5, :page => params[:page])
-      @tag_posts=false
     end
   end
 
