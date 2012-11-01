@@ -1,0 +1,13 @@
+<tr>
+  <br>   <br>
+
+    <span class="content"><%= comment.content %></span>
+    <span class="timestamp">
+      <FONT SIZE="-3">
+        <br>  <%=    time_ago_in_words(comment.created_at )%>
+      <%=  comment.writer%>
+
+        <br>  </FONT>
+    </span>
+
+</tr>

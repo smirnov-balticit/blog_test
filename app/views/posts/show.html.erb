@@ -1,0 +1,22 @@
+  <%= render 'shared/side' %>
+
+  <div class="posts">
+    <h3 class="post"> <%= link_to @post.ptitle,@post %> </h3>
+    <p><%=@post.content%></p>
+    <h2 class="post"> by <%= link_to  @post.writer.name, @post.writer %>
+     <%= time_ago_in_words(@post.created_at) %>   ago
+     <% @post.tags.each do |tag| %>
+        <li><%= link_to tag.name, { :action => :tag, :id => tag.name } %></li>
+     <%end%>
+   </h2>
+  </div>
+
+
+  <%=   render @comments %> <br/>
+  <%= render 'shared/comment_form' %>
+
+
+
+
+
+
