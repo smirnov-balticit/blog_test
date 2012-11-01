@@ -1,4 +1,4 @@
-require 'spec_helper'
+ require 'spec_helper'
 
 describe User do
 
@@ -57,6 +57,7 @@ describe User do
 		user_with_duplicate_email.should_not be_valid
 	  end
    end
+   
    describe "password validations" do
 
 		it "should require a password" do
@@ -80,8 +81,9 @@ describe User do
 		  hash = @attr.merge(:password => long, :password_confirmation => long)
 		  User.new(hash).should_not be_valid
 		end
+		
 	    describe "has_password? method" do
-
+           
 			  it "should be true if the passwords match" do
 				@user.has_password?(@attr[:password]).should be_true
 			  end

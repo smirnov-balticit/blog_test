@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_filter :authorized_user, :only => :destroy
 
   def index
-    @tag = params[:id]
+    @tag = params[:tag_nasme]
     if @tag
      @postsArr = Post.tagged_with(@tag)
      @posts = @postsArr.scoped.paginate(page: params[:page])

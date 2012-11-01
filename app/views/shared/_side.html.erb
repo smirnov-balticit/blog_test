@@ -1,12 +1,11 @@
 <div class="tags">
-  <h3>Tags</h3>
+
   <% @tags = ActsAsTaggableOn::Tag.all(:order=>'name')
      if @tags.count > 0
   %>
+    <h3>Tags</h3>
     <% @tags.each do |tag| %>
           <li><%= link_to tag.name, { :action => :tag, :tag_name => tag.name } %></li>
      <%end%>
-  <% else %>
-      <p>There are no tags on the system.</p>
    <% end %>
   </div>

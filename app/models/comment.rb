@@ -9,8 +9,7 @@ class Comment < ActiveRecord::Base
 
   def writer
     return "Anonymus" if user_id.nil?
-    user = User.find(user_id)
-    return user.name
+    User.find(user_id)
   end
 
   default_scope :order => 'comments.created_at DESC'

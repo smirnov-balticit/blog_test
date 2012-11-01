@@ -3773,3 +3773,17 @@ Binary data inserted for `string` type on column `salt`
   [1m[36m (70.0ms)[0m  [1mUPDATE "users" SET "admin" = 't', "updated_at" = '2012-11-01 14:25:02.453354' WHERE "users"."id" = 1[0m
   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Comment.page.
+Creating scope :page. Overwriting existing method Post.page.
+Creating scope :page. Overwriting existing method User.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Comment.page.
+Creating scope :page. Overwriting existing method Post.page.
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 FROM "users" WHERE LOWER("users"."name") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
