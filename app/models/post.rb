@@ -1,13 +1,12 @@
-require 'will_paginate/array'
-
 class Post < ActiveRecord::Base
-	attr_accessible :content, :ptitle  , :tag_list
 
-  acts_as_taggable
+  attr_accessible :content, :ptitle  , :tag_list
 
-	belongs_to :user
+ acts_as_taggable
 
-  has_many :comments, :dependent => :destroy
+ belongs_to :user
+
+ has_many :comments, :dependent => :destroy
 
  validates :ptitle, :presence => true
  validates :content, :presence => true

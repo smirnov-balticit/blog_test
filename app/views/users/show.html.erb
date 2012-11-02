@@ -11,9 +11,9 @@
        <%= will_paginate @posts %>
  <% end %> <br/>
 
-   <% if current_user?(@user) %>
-      <h3 class="post">What's up?</h3>
-      <%= render 'shared/post_form' %>
-   <% end %>
+ <% if current_user?(@user) %>
+     <h3 class="post">What's up?</h3>
+     <%= render 'shared/post_form' %>
+ <% end %>
 
 

@@ -11,7 +11,8 @@ describe User do
   end
  
   describe "password validations" do
-      it "should require a name" do
+      
+	  it "should require a name" do
 		no_name_user = User.new(@attr.merge(:name => ""))
 		no_name_user.should_not be_valid
 	  end
@@ -83,7 +84,10 @@ describe User do
 		end
 		
 	    describe "has_password? method" do
-           
+		before(:each) do
+		  @user=User.create(@attr)
+		end
+         
 			  it "should be true if the passwords match" do
 				@user.has_password?(@attr[:password]).should be_true
 			  end
@@ -123,28 +127,28 @@ describe User do
 			matching_user = User.authenticate(@attr[:email], @attr[:password])
 			matching_user.should == @user
 		  end
-    end
+        end
 	end
 	
-	  describe "admin attribute" do
+	describe "admin attribute" do
 
-    before(:each) do
-      @user = User.create!(@attr)
-    end
+		before(:each) do
+		  @user = User.create!(@attr)
+		end
 
-    it "should respond to admin" do
-      @user.should respond_to(:admin)
-    end
+		it "should respond to admin" do
+		  @user.should respond_to(:admin)
+		end
 
-    it "should not be an admin by default" do
-      @user.should_not be_admin
-    end
+		it "should not be an admin by default" do
+		  @user.should_not be_admin
+		end
 
-    it "should be convertible to an admin" do
-      @user.toggle!(:admin)
-      @user.should be_admin
+		it "should be convertible to an admin" do
+		  @user.toggle!(:admin)
+		  @user.should be_admin
+		end
     end
-  end
   end
  
  

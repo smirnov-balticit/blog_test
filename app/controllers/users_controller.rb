@@ -9,9 +9,7 @@ class UsersController < ApplicationController
     @users = User.paginate(:per_page => 10, :page => params[:page])
   end
 
-
-
-    def show
+  def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(:page => params[:page])
     @title = @user.name
@@ -55,12 +53,6 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User destroyed."
     redirect_to users_path
-  end
-
-  def tag
-    @posts = Post.tagged_with(params[:tag_name])
-    @tags = Post.tag_counts_on(:tags)
-    render 'posts/index'
   end
 
 

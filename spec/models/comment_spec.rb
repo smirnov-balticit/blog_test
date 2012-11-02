@@ -1,18 +1,19 @@
 require 'spec_helper'
 describe Post do
 
-	  before(:each) do
+	before(:each) do
 		@user = Factory(:user)
 		@attr1 = {:content => "value for content" }
 
 		@attr2 = { :ptitle  =>"hello",:content => "value for content" }
 		@post=@user.posts.create!(@attr2)
-	  end
+	end
 
-	  it "should create a new instance given valid attributes" do
+	it "should create a new instance given valid attributes" do
 			@post.comments.create(@attr1)
-	  end
-     describe "post associations" do
+	end
+    
+	describe "post associations" do
 
 		before(:each) do
 		  @comment = @post.comments.create(@attr1)
@@ -28,7 +29,7 @@ describe Post do
 		end
 	end
 
-	  describe "post associations" do
+	describe "post associations" do
 
 		before(:each) do
 			
@@ -38,10 +39,10 @@ describe Post do
 		it "should have a microposts attribute" do
 		  @post.should respond_to(:comments)
         end
-      end
+    end
 	  
 	  
-	  describe "validations" do
+	describe "validations" do
 
 		it "should require a user id" do
 		  Comment.new(@attr1).should_not be_valid
@@ -50,9 +51,5 @@ describe Post do
 		it "should require nonblank content" do
 		  @post.comments.build(:content => "  ").should_not be_valid
 		end
-		
-		
-
-		
-      end
+	 end
 end
