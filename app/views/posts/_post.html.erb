@@ -4,7 +4,7 @@
   <h2 class="post"> by <%= link_to  post.writer.name, post.writer %>
     <%= time_ago_in_words(post.created_at) %>   ago
     <% post.tags.each do |tag| %>
-        <li><%= link_to tag.name, { :action => :index, :tag_name => tag.name } %></li>
+        <li><%= link_to tag.name, {:tag_name => tag.name } %></li>
     <%end%>
   </h2>
 </div>
